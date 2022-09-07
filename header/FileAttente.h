@@ -1,0 +1,14 @@
+//
+// Created by arthur on 07/09/2022.
+//
+
+#ifndef SIMULATIONBANQUE_FILEATTENTE_H
+#define SIMULATIONBANQUE_FILEATTENTE_H
+
+
+class FileAttente {
+
+};
+
+
+#endif //SIMULATIONBANQUE_FILEATTENTE_H
