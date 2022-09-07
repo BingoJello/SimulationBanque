@@ -7,7 +7,11 @@
 
 
 class Client {
-
+private:
+    double _arrivalTime;
+public:
+    Client(double arrivalTime);
+    double getArrivalTime();
 };
 
 
