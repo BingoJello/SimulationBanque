@@ -13,7 +13,7 @@ private:
     double _occupationTime;
 
 public:
-    Cashier(double tms);
+    Cashier(double ast);
     double getAverageServiceTime();
     int getServedClients();
     double getOccupationTime();

@@ -10,26 +10,26 @@ Cashier::Cashier(double ast) {
     _averageServiceTime = ast;
 }
 
-void Cashier::wait() {
-    //TODO
-}
-
-bool Cashier::isFree() {
-    //TODO
+double Cashier::getAverageServiceTime() {
+    return _averageServiceTime;
 }
 
 int Cashier::getServedClients() {
     return _nbClientsServed;
 }
 
+double Cashier::getOccupationTime() {
+    return _occupationTime;
+}
+
+bool Cashier::isFree() {
+    //TODO
+}
+
 void Cashier::serve(Client client) {
     //TODO
 }
 
-double Cashier::getAverageServiceTime() {
-    return _averageServiceTime;
-}
-
-double Cashier::getOccupationTime() {
-    return _occupationTime;
+void Cashier::wait() {
+    //TODO
 }

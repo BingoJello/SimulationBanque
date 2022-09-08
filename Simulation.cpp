@@ -3,3 +3,15 @@
 //
 
 #include "header/Simulation.h"
+
+void Simulation::add(Event *e) {
+
+}
+
+void Simulation::run() {
+
+}
+
+double Simulation::time() {
+
+}

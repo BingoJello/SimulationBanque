@@ -20,18 +20,18 @@ double Bank::getExpectedDuration() {
     return _expectedDuration;
 }
 
-Cashier* Bank::getFreeCashier() {
-    //TODO
-}
-
-int Bank::getNbServedClients() {
-    //TODO
+double Bank::getTimeBetweenArrivals() {
+    return _timeBetweenArrivals;
 }
 
 int Bank::getNbrCashiers() {
     return _nbrCashiers;
 }
 
-double Bank::getTimeBetweenArrivals() {
-    return _timeBetweenArrivals;
+int Bank::getNbServedClients() {
+    //TODO
+}
+
+Cashier* Bank::getFreeCashier() {
+    //TODO
 }
