@@ -10,9 +10,8 @@
 class Event {
 private :
     const double _startTime;
-    Simulation _simulation;
 public:
-    Event(double st, Simulation sim);
+    Event(double st);
     virtual void treat();
     double getStartTime();
 

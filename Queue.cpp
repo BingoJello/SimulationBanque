@@ -25,9 +25,9 @@ double Queue::averageWaitingTime() {
 }
 
 bool Queue::isEmpty() {
-
+    return _clients.empty() ? true : false;
 }
 
 Client Queue::remove() {
-
+  //TODO
 }

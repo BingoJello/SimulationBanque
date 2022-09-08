@@ -4,8 +4,8 @@
 
 #include "header/Event.h"
 
-Event::Event(double st, Simulation sim) : _startTime(st) {
-    _simulation = sim;
+Event::Event(double st) : _startTime(st) {
+
 }
 
 double Event::getStartTime() {

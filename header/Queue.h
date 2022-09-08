@@ -5,12 +5,16 @@
 #ifndef SIMULATIONBANQUE_QUEUE_H
 #define SIMULATIONBANQUE_QUEUE_H
 
+#include <vector>
+using namespace std;
 #include "Bank.h"
 #include "Client.h"
+
 
 class Queue {
 private:
     Bank _bank;
+    vector<Client> _clients;
 public:
     Queue(Bank b);
     int maxLength();
