@@ -8,13 +8,15 @@ Cashier::Cashier(double ast) {
     _nbClientsServed = 0;
     _occupationTime = 0;
     _averageServiceTime = ast;
+    _servedClient = 0;
+    _remainingServiceTimeClient = 0
 }
 
 double Cashier::getAverageServiceTime() {
     return _averageServiceTime;
 }
 
-int Cashier::getServedClients() {
+int Cashier::getNbServedClients() {
     return _nbClientsServed;
 }
 
@@ -23,13 +25,20 @@ double Cashier::getOccupationTime() {
 }
 
 bool Cashier::isFree() {
-    //TODO
+    return _clientServed == 0;
 }
 
-void Cashier::serve(Client client) {
-    //TODO
+void Cashier::serve(Client* client) {
+    _servedClient = client;
+    _remainingServiceTimeClient = _averageServiceTime;
 }
 
 void Cashier::wait() {
-    //TODO
+    if (_remainingServiceTimeClient > 0) {
+        _remainingServiceTimeClient--;
+    }
+}
+
+double Cashier::getRemainingServiceTimeClient() {
+    return _remainingServiceTimeClient;
 }

@@ -11,14 +11,17 @@ private:
     int _nbClientsServed;
     double _averageServiceTime;
     double _occupationTime;
+    double _remainingServiceTimeClient;
+    Client* _servedClient;
 
 public:
     Cashier(double ast);
     double getAverageServiceTime();
-    int getServedClients();
+    int getNbServedClients();
     double getOccupationTime();
+    double getRemainingServiceTimeClient();
     bool isFree();
-    void serve(Client client);
+    void serve(Client* client);
     void wait();
 };
 
