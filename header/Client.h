@@ -9,9 +9,12 @@
 class Client {
 private:
     double _arrivalTime;
+    double _serviceStartTime;
 public:
     Client(double arrivalTime);
     double getArrivalTime();
+    double getServiceStartTime();
+    double setServiceStartTime(double sst);
 };
 
 

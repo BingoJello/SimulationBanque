@@ -10,3 +10,11 @@ Client::Client(double arrivalTime) {
 double Client::getArrivalTime() {
     return _arrivalTime;
 }
+
+double Client::getServiceStartTime() {
+    return _serviceStartTime;
+}
+
+double Client::setServiceStartTime(double sst) {
+    _serviceStartTime = sst;
+}
