@@ -15,7 +15,7 @@ using namespace std;
 class Queue {
 private:
     Bank* _bank;
-    vector<Client*> _clients;
+    deque<Client*> _clients;
     int _maxLength;
     double averageWaitingTime;
     vector<Client*> _servedClients;

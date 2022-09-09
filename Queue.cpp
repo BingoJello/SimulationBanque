@@ -37,7 +37,8 @@ bool Queue::isEmpty() {
 
 Client* Queue::remove() {
     Client* c = _clients.front();
+    double current_time = _bank->getCurrentTime();
+    c->setServiceStartTime(current_time);
     _clients.pop_front();
-
     return c;
 }
