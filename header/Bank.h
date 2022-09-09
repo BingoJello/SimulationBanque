@@ -15,6 +15,7 @@ private:
     double _timeBetweenArrivals;
 public:
     Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals, double* listAverageServiceTime);
+    Bank() = default;
     double getActualDuration();
     double getExpectedDuration();
     double getTimeBetweenArrivals();

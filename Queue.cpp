@@ -4,7 +4,7 @@
 
 #include "header/Queue.h"
 
-Queue::Queue(Bank b) {
+Queue::Queue(Bank* b) {
     _bank = b;
 }
 
@@ -16,9 +16,10 @@ double Queue::mediumLength() {
 
 }
 
-void Queue::add(Client c) {
-
+void Queue::add(Client* c) {
+    _clients.push_back(c);
 }
+
 
 double Queue::averageWaitingTime() {
 
@@ -28,6 +29,8 @@ bool Queue::isEmpty() {
     return _clients.empty() ? true : false;
 }
 
-Client Queue::remove() {
-  //TODO
+Client* Queue::remove() {
+    Client* c = _clients.front();
+    _clients.pop_front();
+    return c;
 }
