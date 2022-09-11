@@ -37,7 +37,7 @@ bool Queue::isEmpty() {
 
 Client* Queue::remove() {
     Client* c = _clients.front();
-    _clients.erase(_clients.begin());
+    _clients.pop_front();
 
     return c;
 }

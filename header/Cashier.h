@@ -13,15 +13,18 @@ private:
     double _occupationTime;
     double _remainingServiceTimeClient;
     Client* _servedClient;
+    Bank* _bank;
 
 public:
-    Cashier(double ast);
+    Cashier(Bank& bank, double ast);
     double getAverageServiceTime();
     int getNbServedClients();
     double getOccupationTime();
     double getRemainingServiceTimeClient();
+    double tauxOccupation();
     bool isFree();
     void serve(Client* client);
+    void free();
     void wait();
 };
 

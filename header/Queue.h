@@ -15,11 +15,11 @@ using namespace std;
 class Queue {
 private:
     Bank* _bank;
-    vector<Client*> _clients;
+    // vector<Client*> _clients;
     int _maxLength;
     double averageWaitingTime;
-    vector<Client*> _servedClients;
-   // deque<Client*> _clients; // plus adapté pour une
+    list<Client*> _servedClients;
+    deque<Client*> _clients; // plus adapté pour une
 public:
     Queue(Bank* b);
     int getMaxLength();

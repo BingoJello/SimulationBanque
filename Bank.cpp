@@ -8,8 +8,9 @@ Bank::Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals, 
     _expectedDuration = expectedDuration;
     _nbrCashiers = nbCashiers;
     _timeBetweenArrivals = timeBetweenArrivals;
-
-    //TODO listAverageServiceTime;
+    _cashiers = new Cashier*[nbCashiers];
+    for (int i=0; i < nbCashiers; i++)
+        _cashiers[i] = new Cashier(*this, listAverageServiceTime[i]);
 }
 
 double Bank::getActualDuration() {
@@ -29,9 +30,14 @@ int Bank::getNbrCashiers() {
 }
 
 int Bank::getNbServedClients() {
-    //TODO
+    int totalServedClients = 0;
+    for (int i = 0; i< _nbrCashiers; i++)
+        totalServedClients += _cashiers[i]->getNbServedClients();
+    return totalServedClients;
 }
 
 Cashier* Bank::getFreeCashier() {
-    //TODO
+    for (int i = 0; i < _nbrCashiers; i++)
+        if (_cashiers[i]->isFree()) return _cashiers[i];
+    return 0;
 }

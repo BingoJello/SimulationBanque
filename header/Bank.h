@@ -6,13 +6,16 @@
 #define SIMULATIONBANQUE_BANK_H
 
 #include "Cashier.h"
+#include "/Simulation.h"
+#include <list>header
 
 
-class Bank {
+class Bank: public Simulation {
 private:
     double _expectedDuration;
     int _nbrCashiers;
     double _timeBetweenArrivals;
+    list<Cashier*> _cashiers;
 public:
     Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals, double* listAverageServiceTime);
     Bank() = default;
