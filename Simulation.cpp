@@ -4,14 +4,20 @@
 
 #include "header/Simulation.h"
 
-void Simulation::add(Event *e) {
+Simulation::Simulation() {
 
+}
+
+void Simulation::add(Event *e) {
+    _events.push_back(e);
 }
 
 void Simulation::run() {
-
+    for (Event* event : _events) {
+        //TODO
+    }
 }
 
-double Simulation::time() {
-
+double Simulation::getTime() {
+    return _time;
 }

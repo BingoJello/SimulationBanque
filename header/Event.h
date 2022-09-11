@@ -5,15 +5,13 @@
 #ifndef SIMULATIONBANQUE_EVENT_H
 #define SIMULATIONBANQUE_EVENT_H
 
-#include "Simulation.h"
-
 class Event {
-private :
-    const double _startTime;
+protected :
+    double _time;
 public:
-    Event(double st);
-    virtual void treat();
-    double getStartTime();
+    Event();
+    virtual void process();
+    double getTime();
 
 };
 

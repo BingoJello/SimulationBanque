@@ -6,12 +6,18 @@
 #define SIMULATIONBANQUE_SIMULATION_H
 
 #include "Event.h"
+#include <deque>
+using namespace std;
 
 class Simulation {
+protected:
+    deque<Event*> _events;
+    double _time;
 public:
-    void add(Event* e);
+    Simulation();
     void run();
-    double time();
+    void add(Event* e);
+    double getTime();
 };
 
 

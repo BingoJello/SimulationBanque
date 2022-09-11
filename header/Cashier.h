@@ -5,6 +5,7 @@
 #ifndef SIMULATIONBANQUE_CASHIER_H
 #define SIMULATIONBANQUE_CASHIER_H
 #include "Client.h"
+#include "Bank.h"
 
 class Cashier {
 private:
@@ -13,16 +14,17 @@ private:
     double _occupationTime;
     double _remainingServiceTimeClient;
     Client* _servedClient;
+    Bank* _bank;
+    void wait();
 
 public:
-    Cashier(double ast);
+    Cashier(double ast, Bank* b);
     double getAverageServiceTime();
     int getNbServedClients();
     double getOccupationTime();
     double getRemainingServiceTimeClient();
     bool isFree();
     void serve(Client* client);
-    void wait();
 };
 
 

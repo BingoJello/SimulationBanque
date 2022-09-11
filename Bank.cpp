@@ -3,17 +3,24 @@
 //
 
 #include "header/Bank.h"
-
-Bank::Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals, double *listAverageServiceTime) {
+#include "header/SimulationUtility.h"
+#include "header/Queue.h"
+/**
+ *
+ * @param expectedDuration //durée prévus de la simulation
+ * @param nbCashiers //nombre de caissiers total
+ * @param timeBetweenArrivals //temps entre les arrivées des clients
+ * @param listAverageServiceTime //liste des temps de service des caissiers
+ */
+Bank::Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals){
     _expectedDuration = expectedDuration;
     _nbrCashiers = nbCashiers;
     _timeBetweenArrivals = timeBetweenArrivals;
-
-    //TODO listAverageServiceTime;
-}
-
-double Bank::getActualDuration() {
-    //TODO
+    _time = 0;
+    double* listAverageServiceTime = SimulationUtility::getRandomValue(1, 3, 3);
+    for(int i=0; i<nbCashiers; i++){
+        Cashier c = Cashier(23, this);
+    }
 }
 
 double Bank::getExpectedDuration() {
@@ -34,4 +41,8 @@ int Bank::getNbServedClients() {
 
 Cashier* Bank::getFreeCashier() {
     //TODO
+}
+
+double Bank::getRealTime() {
+    return _realTime;
 }

@@ -4,16 +4,13 @@
 
 #include "header/Cashier.h"
 
-Cashier::Cashier(double ast) {
-    _nbClientsServed = 0;
-    _occupationTime = 0;
+Cashier::Cashier(double ast, Bank* b) {
     _averageServiceTime = ast;
+    _nbClientsServed = 0;
     _servedClient = 0;
-    _remainingServiceTimeClient = 0
-}
-
-double Cashier::getAverageServiceTime() {
-    return _averageServiceTime;
+    _occupationTime = 0;
+    _remainingServiceTimeClient = 0;
+    _bank = b;
 }
 
 int Cashier::getNbServedClients() {
@@ -25,12 +22,14 @@ double Cashier::getOccupationTime() {
 }
 
 bool Cashier::isFree() {
-    return _clientServed == 0;
+    return _servedClient == 0;
 }
 
 void Cashier::serve(Client* client) {
     _servedClient = client;
     _remainingServiceTimeClient = _averageServiceTime;
+    Cashier::wait();
+    //_bank->add(new
 }
 
 void Cashier::wait() {

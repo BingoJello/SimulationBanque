@@ -4,14 +4,10 @@
 
 #include "header/Event.h"
 
-Event::Event(double st) : _startTime(st) {
+Event::Event() {
 
 }
 
-double Event::getStartTime() {
-    return _startTime;
-}
-
-void Event::treat() {
-
+double Event::getTime() {
+    return _time;
 }
