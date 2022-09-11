@@ -13,6 +13,10 @@ Bank::Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals, 
         _cashiers[i] = new Cashier(*this, listAverageServiceTime[i]);
 }
 
+Bank:: ~Bank(){
+    delete[] _cashiers;
+}
+
 double Bank::getActualDuration() {
     //TODO
 }
@@ -40,4 +44,10 @@ Cashier* Bank::getFreeCashier() {
     for (int i = 0; i < _nbrCashiers; i++)
         if (_cashiers[i]->isFree()) return _cashiers[i];
     return 0;
+}
+
+std::ostream &operator<<(std::ostream &os, const Bank &bank)
+{
+    os << "output bank data : ";
+    return os;
 }

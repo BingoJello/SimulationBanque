@@ -17,15 +17,17 @@ private:
 
 public:
     Cashier(Bank& bank, double ast);
-    double getAverageServiceTime();
-    int getNbServedClients();
+    double getAverageServiceTime() const;
+    int getNbServedClients() const;
     double getOccupationTime();
     double getRemainingServiceTimeClient();
-    double tauxOccupation();
+    double tauxOccupation()  const;
     bool isFree();
     void serve(Client* client);
     void free();
     void wait();
+
+    friend std::ostream &operator<<(std::ostream &os, const Cashier &cashier);
 };
 
 

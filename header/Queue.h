@@ -7,6 +7,7 @@
 
 #include <vector>
 #include <deque>
+#include <list>
 using namespace std;
 #include "Bank.h"
 #include "Client.h"
