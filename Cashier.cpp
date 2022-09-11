@@ -5,7 +5,7 @@
 #include "header/Cashier.h"
 #include "header/Bank.h"
 
-Cashier::Cashier(Bank& bank, double ast) {
+Cashier::Cashier(Bank* bank, double ast) {
     _nbClientsServed = 0;
     _occupationTime = 0;
     _averageServiceTime = ast;
@@ -60,7 +60,7 @@ std::ostream &operator<<(std::ostream &os, const Cashier &cashier)
 {
     os << "Number of served clients : " << cashier.getNbServedClients() << std::endl;
     os << "Average service time : " << cashier.getAverageServiceTime() << std::endl;
-    os << "Occupation raye: " << cashier.tauxOccupation() << std::endl;
+    os << "Occupation rate: " << cashier.tauxOccupation() << std::endl;
    
     return os;
 }

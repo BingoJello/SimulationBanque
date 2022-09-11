@@ -9,8 +9,8 @@
 #include <deque>
 #include <list>
 using namespace std;
-#include "Bank.h"
-#include "Client.h"
+#include "header/Bank.h"
+#include "header/Client.h"
 
 
 class Queue {

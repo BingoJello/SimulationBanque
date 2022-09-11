@@ -16,7 +16,7 @@ private:
     Bank* _bank;
 
 public:
-    Cashier(Bank& bank, double ast);
+    Cashier(Bank* bank, double ast);
     double getAverageServiceTime() const;
     int getNbServedClients() const;
     double getOccupationTime();

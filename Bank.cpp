@@ -10,7 +10,7 @@ Bank::Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals, 
     _timeBetweenArrivals = timeBetweenArrivals;
     _cashiers = new Cashier*[nbCashiers];
     for (int i=0; i < nbCashiers; i++)
-        _cashiers[i] = new Cashier(*this, listAverageServiceTime[i]);
+        _cashiers[i] = new Cashier(this, listAverageServiceTime[i]);
 }
 
 Bank:: ~Bank(){
