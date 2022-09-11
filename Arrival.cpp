@@ -27,4 +27,5 @@ void Arrival::process() {
     if(_time + 5 < b->getExpectedDuration()){
         _simulation->add(new Arrival(_time+5, _simulation));
     }
+
 }
