@@ -16,6 +16,6 @@ double Client::getServiceStartTime() {
     return _serviceStartTime;
 }
 
-double Client::setServiceStartTime(double sst) {
+void Client::setServiceStartTime(double sst) {
     _serviceStartTime = sst;
 }

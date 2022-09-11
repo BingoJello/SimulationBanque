@@ -1,10 +1,12 @@
 //
-// Created by arthur on 07/09/2022.
+// Created by arthur on 11/09/2022.
 //
 
 #include "header/Cashier.h"
+#include "header/Bank.h"
+#include "header/Departure.h"
 
-Cashier::Cashier(double ast, Bank* b) {
+Cashier::Cashier(double ast, Bank *b) {
     _averageServiceTime = ast;
     _nbClientsServed = 0;
     _servedClient = 0;
@@ -12,6 +14,7 @@ Cashier::Cashier(double ast, Bank* b) {
     _remainingServiceTimeClient = 0;
     _bank = b;
 }
+
 
 int Cashier::getNbServedClients() {
     return _nbClientsServed;
@@ -29,7 +32,7 @@ void Cashier::serve(Client* client) {
     _servedClient = client;
     _remainingServiceTimeClient = _averageServiceTime;
     Cashier::wait();
-    //_bank->add(new
+    _bank->add(new Departure(_bank->getTime() + _averageServiceTime, _bank, this));
 }
 
 void Cashier::wait() {
@@ -40,4 +43,12 @@ void Cashier::wait() {
 
 double Cashier::getRemainingServiceTimeClient() {
     return _remainingServiceTimeClient;
+}
+
+Client* Cashier::getClient() {
+    return _servedClient;
+}
+
+void Cashier::releaseClient() {
+    _servedClient = 0;
 }

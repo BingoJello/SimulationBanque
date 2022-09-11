@@ -13,7 +13,7 @@ int Queue::getMaxLength() {
 }
 
 double Queue::getMediumLength() {
-    //TODO
+    return 20;
 }
 
 void Queue::add(Client* c) {
@@ -37,7 +37,7 @@ bool Queue::isEmpty() {
 
 Client* Queue::remove() {
     Client* c = _clients.front();
-    double current_time = _bank->getCurrentTime();
+    double current_time = _bank->getTime();
     c->setServiceStartTime(current_time);
     _clients.pop_front();
     return c;

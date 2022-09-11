@@ -10,13 +10,14 @@
 #include "Cashier.h"
 #include "Simulation.h"
 
-class Departure : Event {
-protected:
-    Client* _client;
+class Departure : public Event {
+private:
     Cashier* _cashier;
-    Bank* _bank;
+    Simulation* _simulation;
 public:
-    Departure(double time, Bank* bank, Client* client, Cashier* cashier);
+    Departure(double time, Simulation* simulation, Cashier* cashier);
+    ~Departure();
+    void process();
 };
 
 

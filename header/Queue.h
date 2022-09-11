@@ -8,9 +8,10 @@
 #include <vector>
 #include <deque>
 using namespace std;
+
 #include "Bank.h"
 #include "Client.h"
-
+#include "Cashier.h"
 
 class Queue {
 private:

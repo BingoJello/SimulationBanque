@@ -8,6 +8,14 @@ Event::Event() {
 
 }
 
+Event::~Event() {
+
+}
+
+void Event::process() {
+
+}
+
 double Event::getTime() {
     return _time;
 }

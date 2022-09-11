@@ -2,19 +2,18 @@
 // Created by arthur on 07/09/2022.
 //
 
+#include <algorithm>
+#include <vector>
 #include "header/Simulation.h"
-
-Simulation::Simulation() {
-
-}
+#include "header/Event.h"
 
 void Simulation::add(Event *e) {
     _events.push_back(e);
 }
 
 void Simulation::run() {
-    for (Event* event : _events) {
-        //TODO
+    while(false == _events.empty()){
+
     }
 }
 

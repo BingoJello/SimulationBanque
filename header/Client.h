@@ -14,7 +14,7 @@ public:
     Client(double arrivalTime);
     double getArrivalTime();
     double getServiceStartTime();
-    double setServiceStartTime(double sst);
+    void setServiceStartTime(double sst);
 };
 
 
