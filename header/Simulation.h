@@ -5,14 +5,25 @@
 #ifndef SIMULATIONBANQUE_SIMULATION_H
 #define SIMULATIONBANQUE_SIMULATION_H
 
-#include <deque>
+#include <iostream>
+#include <set>
+#include "Event.h"
 using namespace std;
 
 class Event;
 
+/* Struct used to compare two events for the set of events */
+struct EventComp {
+    bool operator()(const Event* lhs, const Event* rhs) const  {
+        /* Events are compared using their execution time */
+        return (lhs->getTime() < rhs->getTime());
+    }
+};
+
 class Simulation {
 protected:
-    deque<Event*> _events;
+    set<Event*, EventComp> _events;
+    set<Event*, EventComp>::iterator _eventIterator;
     double _time;
 public:
     void run();

@@ -5,10 +5,12 @@
 #ifndef SIMULATIONBANQUE_DEPARTURE_H
 #define SIMULATIONBANQUE_DEPARTURE_H
 
-#include "Event.h"
-#include "Client.h"
+#include "Bank.h"
 #include "Cashier.h"
-#include "Simulation.h"
+#include "Client.h"
+#include "Event.h"
+
+class Cashier;
 
 class Departure : public Event {
 private:

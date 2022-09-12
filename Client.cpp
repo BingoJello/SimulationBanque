@@ -6,16 +6,7 @@
 
 Client::Client(double arrivalTime) {
     _arrivalTime = arrivalTime;
-    _serviceStartTime = 0;
 }
 double Client::getArrivalTime() {
     return _arrivalTime;
-}
-
-double Client::getServiceStartTime() {
-    return _serviceStartTime;
-}
-
-void Client::setServiceStartTime(double sst) {
-    _serviceStartTime = sst;
 }

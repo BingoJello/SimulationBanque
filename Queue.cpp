@@ -6,39 +6,27 @@
 
 Queue::Queue(Bank* b) {
     _bank = b;
-}
-
-int Queue::getMaxLength() {
-    return _maxLength;
-}
-
-double Queue::getMediumLength() {
-    return 20;
+    _nbrMaxClient = 0;
 }
 
 void Queue::add(Client* c) {
     _clients.push_back(c);
+    int size = _clients.size();
+    if(_nbrMaxClient < size){
+        _nbrMaxClient = size;
+    }
 }
 
-
-double Queue::getAverageWaitingTime() {
-    int totalWaitingTime = 0;
-    for (Client* client : _servedClients) {
-        int serviceStartTime = client->getServiceStartTime();
-        int arrivalTime = client->getArrivalTime();
-        totalWaitingTime += serviceStartTime - arrivalTime;
-    }
-    return totalWaitingTime / (int) _servedClients.size();
+Client* Queue::remove() {
+    Client* c = _clients.front();
+    _clients.pop_front();
+    return c;
 }
 
 bool Queue::isEmpty() {
     return _clients.empty() ? true : false;
 }
 
-Client* Queue::remove() {
-    Client* c = _clients.front();
-    double current_time = _bank->getTime();
-    c->setServiceStartTime(current_time);
-    _clients.pop_front();
-    return c;
+int Queue::getMaxLength() {
+    return _maxLength;
 }

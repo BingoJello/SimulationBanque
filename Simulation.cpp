@@ -1,19 +1,20 @@
 //
 // Created by arthur on 07/09/2022.
-//
 
-#include <algorithm>
-#include <vector>
 #include "header/Simulation.h"
-#include "header/Event.h"
+#include <iostream>
 
 void Simulation::add(Event *e) {
-    _events.push_back(e);
+    cout << "nouvelle evenement \n";
+    _events.insert(e);
 }
 
 void Simulation::run() {
-    while(false == _events.empty()){
-
+    for(_eventIterator = _events.begin() ; _eventIterator != _events.end() ; ++_eventIterator) {
+        Event *e = *_eventIterator;
+        _time = e->getTime();
+        cout << e->getTime() << ":  ";
+        e->process();
     }
 }
 

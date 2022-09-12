@@ -5,9 +5,12 @@
 #ifndef SIMULATIONBANQUE_BANK_H
 #define SIMULATIONBANQUE_BANK_H
 
-#include "Simulation.h"
 #include "Cashier.h"
+#include "Arrival.h"
+#include "Simulation.h"
+#include "Queue.h"
 
+class Cashier;
 class Queue;
 
 class Bank : public Simulation {
@@ -16,10 +19,12 @@ private:
     int _nbrCashiers;
     double _timeBetweenArrivals;
     double _realTime;
+    double _averageServiceTime;
     Cashier** _cashiers;
+    deque<Cashier*> _freeCashiers;
     Queue* _queue;
 public:
-    Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals);
+    Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals = 3.0, double averageServiceTime = 2.0);
     double getExpectedDuration();
     double getTimeBetweenArrivals();
     int getNbrCashiers();
@@ -27,6 +32,8 @@ public:
     double getRealTime();
     Cashier* getFreeCashier();
     Queue* getQueue();
+    double getAverageServiceTime();
+    deque<Cashier*> getFreeCashiersList();
 };
 
 

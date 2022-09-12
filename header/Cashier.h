@@ -5,28 +5,28 @@
 #ifndef SIMULATIONBANQUE_CASHIER_H
 #define SIMULATIONBANQUE_CASHIER_H
 
-class Client;
+#include "Bank.h"
+#include "Departure.h"
+#include "Client.h"
+
 class Bank;
 
 class Cashier {
 private:
+    Bank* _bank;
+    Client* _client;
+    int _idCashier;
     int _nbClientsServed;
     double _averageServiceTime;
     double _occupationTime;
-    double _remainingServiceTimeClient;
-    Client* _servedClient;
-    Bank* _bank;
-    void wait();
 public:
-    Cashier(double tsa, Bank *b);
-    double getAverageServiceTime();
-    int getNbServedClients();
-    double getOccupationTime();
-    double getRemainingServiceTimeClient();
-    bool isFree();
+    Cashier(int idCashier, double ast, Bank* b);
     void serve(Client* client);
     Client* getClient();
     void releaseClient();
+    bool isFree();
+    int getNbServedClients();
+    double getAverageOccupationTime();
 };
 
 

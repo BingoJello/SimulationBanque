@@ -11,24 +11,23 @@ using namespace std;
 
 #include "Bank.h"
 #include "Client.h"
-#include "Cashier.h"
+
+class Client;
+class Bank;
 
 class Queue {
 private:
     Bank* _bank;
     deque<Client*> _clients;
+    int _nbrMaxClient;
     int _maxLength;
     double averageWaitingTime;
-    vector<Client*> _servedClients;
-   // deque<Client*> _clients; // plus adapté pour une
 public:
     Queue(Bank* b);
-    int getMaxLength();
-    double getMediumLength();
-    double getAverageWaitingTime();
     void add(Client* c);
-    bool isEmpty();
     Client* remove();
+    bool isEmpty();
+    int getMaxLength();
 };
 
 

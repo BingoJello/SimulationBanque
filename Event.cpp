@@ -4,8 +4,9 @@
 
 #include "header/Event.h"
 
-Event::Event() {
-
+Event::Event(double time, Simulation *sim) {
+    _time = time;
+    _simulation = sim;
 }
 
 Event::~Event() {
@@ -16,6 +17,6 @@ void Event::process() {
 
 }
 
-double Event::getTime() {
+double Event::getTime() const {
     return _time;
 }

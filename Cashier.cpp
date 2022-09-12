@@ -3,52 +3,40 @@
 //
 
 #include "header/Cashier.h"
-#include "header/Bank.h"
-#include "header/Departure.h"
 
-Cashier::Cashier(double ast, Bank *b) {
+Cashier::Cashier(int idCashier, double ast, Bank *b) {
+    _idCashier = idCashier;
     _averageServiceTime = ast;
-    _nbClientsServed = 0;
-    _servedClient = 0;
-    _occupationTime = 0;
-    _remainingServiceTimeClient = 0;
     _bank = b;
+    _nbClientsServed = 0;
+    _client = nullptr;
+    _occupationTime = 0;
 }
 
+void Cashier::serve(Client* client) {
+    _client = client;
+    _nbClientsServed++;
+    double timeServed = SimulationUtility::getValue(_averageServiceTime);
+    _occupationTime+=timeServed;
+    _bank->add(new Departure(_bank->getTime() + timeServed, _bank, this));
+}
+
+Client* Cashier::getClient() {
+    return _client;
+}
+
+void Cashier::releaseClient() {
+    _client = nullptr;
+}
+
+bool Cashier::isFree() {
+    return _client == nullptr;
+}
 
 int Cashier::getNbServedClients() {
     return _nbClientsServed;
 }
 
-double Cashier::getOccupationTime() {
-    return _occupationTime;
-}
-
-bool Cashier::isFree() {
-    return _servedClient == 0;
-}
-
-void Cashier::serve(Client* client) {
-    _servedClient = client;
-    _remainingServiceTimeClient = _averageServiceTime;
-    Cashier::wait();
-    _bank->add(new Departure(_bank->getTime() + _averageServiceTime, _bank, this));
-}
-
-void Cashier::wait() {
-    if (_remainingServiceTimeClient > 0) {
-        _remainingServiceTimeClient--;
-    }
-}
-
-double Cashier::getRemainingServiceTimeClient() {
-    return _remainingServiceTimeClient;
-}
-
-Client* Cashier::getClient() {
-    return _servedClient;
-}
-
-void Cashier::releaseClient() {
-    _servedClient = 0;
+double Cashier::getAverageOccupationTime() {
+    return (_occupationTime / _bank->getTime());
 }

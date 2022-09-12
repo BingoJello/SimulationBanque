@@ -3,33 +3,28 @@
 //
 
 #include "header/Departure.h"
-#include "header/Cashier.h"
-#include "header/Client.h"
-#include "header/Simulation.h"
-#include "header/Bank.h"
-#include "header/Queue.h"
 
-
-Departure::Departure(double time, Simulation* simulation, Cashier *cashier) : Event(){
+Departure::Departure(double time, Simulation* simulation, Cashier *cashier) : Event(time, simulation){
     _time = time;
     _simulation = simulation;
     _cashier = cashier;
+}
+
+Departure::~Departure() noexcept {
+
 }
 
 void Departure::process() {
     Bank* bank = (Bank*) _simulation;
     Client* c = _cashier->getClient();
     _cashier->releaseClient();
-    //Faire stats cashier
     delete(c);
 
     if(false == bank->getQueue()->isEmpty()){
         Client* c = bank->getQueue()->remove();
         _cashier->serve(c);
+    } else {
+        bank->getFreeCashiersList().push_back(_cashier);
     }
-}
-
-Departure::~Departure() {
-
 }
 

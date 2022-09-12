@@ -2,23 +2,21 @@
 // Created by arthur on 07/09/2022.
 //
 
-#include "header/Cashier.h"
 #include "header/Bank.h"
-#include "header/SimulationUtility.h"
-#include "header/Arrival.h"
-#include "header/Queue.h"
+#include <iostream>
 
-Bank::Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals){
+Bank::Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals, double averageServiceTime){
     _expectedDuration = expectedDuration;
     _nbrCashiers = nbCashiers;
     _timeBetweenArrivals = timeBetweenArrivals;
     _cashiers = new Cashier*[_nbrCashiers];
-    double* listAverageServiceTime = SimulationUtility::getRandomValue(1, 3, 3);
+    _averageServiceTime = averageServiceTime;
     for(int i=0; i<_nbrCashiers; i++){
-        _cashiers[i] = new Cashier(listAverageServiceTime[i], this);
+        _cashiers[i] = new Cashier(i, SimulationUtility::getValue(_averageServiceTime), this);
+        _freeCashiers.push_back(_cashiers[i]);
     }
     _queue = new Queue(this);
-    add(new Arrival(_time, this));
+    add(new Arrival(SimulationUtility::getValue(_timeBetweenArrivals), this));
 }
 
 double Bank::getExpectedDuration() {
@@ -41,15 +39,22 @@ double Bank::getRealTime() {
     return _realTime;
 }
 
-Cashier *Bank::getFreeCashier() {
-    for (int i=0; i<_nbrCashiers; i++) {
-        if(_cashiers[i]->isFree()){
-            return _cashiers[i];
-        }
-    }
-    return 0;
+Cashier* Bank::getFreeCashier() {
+    if(_freeCashiers.empty()) return nullptr;
+
+    Cashier* c =  _freeCashiers.front();
+    _freeCashiers.pop_front();
+    return c;
 }
 
 Queue* Bank::getQueue() {
     return _queue;
+}
+
+double Bank::getAverageServiceTime() {
+    return _averageServiceTime;
+}
+
+deque<Cashier *> Bank::getFreeCashiersList() {
+    return _freeCashiers;
 }
