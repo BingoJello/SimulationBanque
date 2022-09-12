@@ -9,6 +9,7 @@
 #include "Arrival.h"
 #include "Simulation.h"
 #include "Queue.h"
+#include <deque>
 
 class Cashier;
 class Queue;

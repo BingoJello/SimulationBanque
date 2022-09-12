@@ -8,6 +8,7 @@ Departure::Departure(double time, Simulation* simulation, Cashier *cashier) : Ev
     _time = time;
     _simulation = simulation;
     _cashier = cashier;
+    cout << "nouveaux depart a "<<_time<<" du client "<<_cashier->getClient()<<"\n" ;
 }
 
 Departure::~Departure() noexcept {
