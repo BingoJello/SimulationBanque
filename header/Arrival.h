@@ -7,7 +7,6 @@
 
 
 #include <iostream>
-
 #include "SimulationUtility.h"
 #include "Bank.h"
 #include "Client.h"

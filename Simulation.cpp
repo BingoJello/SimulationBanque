@@ -5,7 +5,6 @@
 #include <iostream>
 
 void Simulation::add(Event *e) {
-    cout << "nouvelle evenement \n";
     _events.insert(e);
 }
 

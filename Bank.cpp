@@ -12,7 +12,7 @@ Bank::Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals, 
     _cashiers = new Cashier*[_nbrCashiers];
     _averageServiceTime = averageServiceTime;
     for(int i=0; i<_nbrCashiers; i++){
-        _cashiers[i] = new Cashier(i, SimulationUtility::getValue(_averageServiceTime), this);
+        _cashiers[i] = new Cashier(i, _averageServiceTime, this);
         _freeCashiers.push_back(_cashiers[i]);
     }
     _queue = new Queue(this);
@@ -33,10 +33,6 @@ int Bank::getNbrCashiers() {
 
 int Bank::getNbServedClients() {
     return 0;
-}
-
-double Bank::getRealTime() {
-    return _realTime;
 }
 
 Cashier* Bank::getFreeCashier() {
