@@ -27,6 +27,7 @@ public:
     bool isFree();
     int getNbServedClients();
     double getAverageOccupationTime();
+    int getIdCashier();
 };
 
 

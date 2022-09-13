@@ -5,14 +5,13 @@
 #include "header/Bank.h"
 #include <iostream>
 
-Bank::Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals, double averageServiceTime){
+Bank::Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals, double* averageServiceTime){
     _expectedDuration = expectedDuration;
     _nbrCashiers = nbCashiers;
     _timeBetweenArrivals = timeBetweenArrivals;
     _cashiers = new Cashier*[_nbrCashiers];
-    _averageServiceTime = averageServiceTime;
     for(int i=0; i<_nbrCashiers; i++){
-        _cashiers[i] = new Cashier(i, _averageServiceTime, this);
+        _cashiers[i] = new Cashier(i, averageServiceTime[i], this);
         _freeCashiers.push_back(_cashiers[i]);
     }
     _queue = new Queue(this);
@@ -45,10 +44,6 @@ Cashier* Bank::getFreeCashier() {
 
 Queue* Bank::getQueue() {
     return _queue;
-}
-
-double Bank::getAverageServiceTime() {
-    return _averageServiceTime;
 }
 
 deque<Cashier *> Bank::getFreeCashiersList() {

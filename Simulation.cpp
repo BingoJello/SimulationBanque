@@ -12,7 +12,6 @@ void Simulation::run() {
     for(_eventIterator = _events.begin() ; _eventIterator != _events.end() ; ++_eventIterator) {
         Event *e = *_eventIterator;
         _time = e->getTime();
-        cout << e->getTime() << ":  ";
         e->process();
     }
 }

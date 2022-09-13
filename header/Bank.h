@@ -26,22 +26,22 @@ private:
     double _expectedDuration;
     int _nbrCashiers;
     double _timeBetweenArrivals;
-    double _realTime;
-    double _averageServiceTime;
     Cashier** _cashiers;
     deque<Cashier*> _freeCashiers;
     Queue* _queue;
 public:
+<<<<<<< HEAD
     
     Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals = 3.0, double averageServiceTime = 2.0);
+=======
+    Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals, double* averageServiceTime);
+>>>>>>> 65667f775a40c879d0eef21f4191fc77b76829dc
     double getExpectedDuration();
     double getTimeBetweenArrivals();
     int getNbrCashiers();
     int getNbServedClients();
-    double getRealTime();
     Cashier* getFreeCashier();
     Queue* getQueue();
-    double getAverageServiceTime();
     deque<Cashier*> getFreeCashiersList();
 };
 

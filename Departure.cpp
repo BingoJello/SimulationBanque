@@ -8,7 +8,6 @@ Departure::Departure(double time, Simulation* simulation, Cashier *cashier) : Ev
     _time = time;
     _simulation = simulation;
     _cashier = cashier;
-    cout << "nouveaux depart a "<<_time<<" du client "<<_cashier->getClient()<<"\n" ;
 }
 
 Departure::~Departure() noexcept {
@@ -16,6 +15,7 @@ Departure::~Departure() noexcept {
 }
 
 void Departure::process() {
+    cout << "nouveaux depart a "<<_time<<" du client "<<_cashier->getClient()<<" traite par le caissier ID ="<<_cashier->getIdCashier()<<"\t" ;
     Bank* bank = (Bank*) _simulation;
     Client* c = _cashier->getClient();
     _cashier->releaseClient();
@@ -24,7 +24,9 @@ void Departure::process() {
     if(false == bank->getQueue()->isEmpty()){
         Client* c = bank->getQueue()->remove();
         _cashier->serve(c);
+        cout << "Le caissier ID = " << _cashier->getIdCashier()<<" traite le client " << c<<"\n";
     } else {
+        cout << "Le caissier ID = " << _cashier->getIdCashier()<<" est libre \n";
         bank->getFreeCashiersList().push_back(_cashier);
     }
 }

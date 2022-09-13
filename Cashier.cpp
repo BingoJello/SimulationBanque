@@ -40,3 +40,7 @@ int Cashier::getNbServedClients() {
 double Cashier::getAverageOccupationTime() {
     return (_occupationTime / _bank->getTime());
 }
+
+int Cashier::getIdCashier() {
+    return _idCashier;
+}

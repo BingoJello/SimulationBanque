@@ -3,6 +3,7 @@
 #include <string.h>
 #include "header/Bank.h"
 using namespace std;
+#include "header/SimulationUtility.h"
 
 
 bool check_number(string str) {
@@ -76,7 +77,11 @@ int main(int argc, char ** argv) {
 
 /*
 int main() {
-    Bank *b = new Bank(10.0, 3, 0.6, 1.0);
+    SimulationUtility::init();
+    double* averageServiceTimes = new double[3];
+    SimulationUtility::genRandomDoubles(4, 15, &averageServiceTimes, 3);
+
+    Bank *b = new Bank(10.0, 3, 0.6, averageServiceTimes);
     b->run();
     std::cout << "Hello, World!" << std::endl;
     return 0;

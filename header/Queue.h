@@ -21,13 +21,18 @@ private:
     deque<Client*> _clients;
     int _nbrMaxClient;
     int _maxLength;
-    double averageWaitingTime;
+    double _lastModifTime;
+    double _timeClientSum;
+    int _nbrClientServed;
+    void updateAverage();
 public:
     Queue(Bank* b);
     void add(Client* c);
     Client* remove();
     bool isEmpty();
     int getMaxLength();
+    double getAverageLength();
+    double getAverageWaitingTime();
 };
 
 
