@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <random>
+using namespace std;
 
 class SimulationUtility {
 public:
@@ -18,6 +20,16 @@ public:
 
     static double getValue(double moy = 1.0) {
         return -log(((double)rand()/RAND_MAX))*moy;
+    }
+
+    /* Generate random doubles between min and max in an array */
+    static void genRandomDoubles(double min, double max, double** arr, int arrSize) {
+        uniform_real_distribution<double> unif(min, max);
+        random_device rd;
+        default_random_engine re(rd());
+        for(int i=0 ; i<arrSize ; i++) {
+            *(*arr+i) = unif(re);
+        }
     }
 };
 
