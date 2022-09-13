@@ -22,31 +22,40 @@ int main(int argc, char ** argv) {
     int i=1;
     if(argc>1){
        
-       
         int i, x;
         int ch = 0;
+        /**
+         * @brief ajoute un paramètre
+         * 
+         */
         for (i=1; i<argc; i++) {
             for (x = 0; x < strlen(argv[i]); x++) {
                 ch = argv[i][x];
                 if (ch == 'h'){
                     cout << "-h : help\n" << endl;
-                    cout << "-nC <nbCashier> : Entrer le nombre de Cashier" << endl;
-                    cout << "-dS <dureeSimulation> : Entrer la durée de la simulation" << endl;
-                    cout << "-tBA <timeBetweenArrivals> : Entrer le temps entre les arrivées" << endl;
-                    cout << "-aST <averageServiceTime> : Entrer le temps moyen entre les arriveées" << endl;
+                    cout << "-C <nbCashier> : Entrer le nombre de Cashier" << endl;
+                    cout << "-S <dureeSimulation> : Entrer la durée de la simulation" << endl;
+                    cout << "-A <timeBetweenArrivals> : Entrer le temps entre les arrivées" << endl;
+                    cout << "-T <averageServiceTime> : Entrer le temps moyen entre les arriveées" << endl;
                     exit(0);
                 }
                 else if (ch == 'C'){
-                    nbCashier = atoi(argv[i+1]);
+                    if (check_number(argv[i+1]))
+                        nbCashier = atoi(argv[i+1]);
                 }
                 else if (ch == 'S'){
-                    dureeSimulation = atoi(argv[i+1]);
+                    if (check_number(argv[i+1]))
+                        dureeSimulation = atoi(argv[i+1]);
                 }
                 else if (ch == 'T'){
-                    timeBetweenArrivals = atoi(argv[i+1]);
+                    if (check_number(argv[i+1]))
+                        timeBetweenArrivals = atoi(argv[i+1]);
                 }
                 else if (ch == 'A'){
-                    averageServiceTime = atoi(argv[i+1]);
+                    if (check_number(argv[i+1]))
+                        averageServiceTime = atoi(argv[i+1]);
+                }else{
+                    cerr << "Wrong paramètre" << endl;
                 }
 
             }

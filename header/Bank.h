@@ -1,6 +1,13 @@
-//
-// Created by arthur on 07/09/2022.
-//
+/**
+ * @file Bank.h
+ * @author your name (you@domain.com)
+ * @brief 
+ * @version 0.1
+ * @date 2022-09-13
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 
 #ifndef SIMULATIONBANQUE_BANK_H
 #define SIMULATIONBANQUE_BANK_H
@@ -25,6 +32,7 @@ private:
     deque<Cashier*> _freeCashiers;
     Queue* _queue;
 public:
+    
     Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals = 3.0, double averageServiceTime = 2.0);
     double getExpectedDuration();
     double getTimeBetweenArrivals();
