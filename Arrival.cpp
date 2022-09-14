@@ -1,13 +1,18 @@
-
-
 #include "header/Arrival.h"
-#include <iostream>
 
+/**
+ * @brief Constructeur
+ * @param time Temps de la simulation
+ * @param s Simulation
+ */
 Arrival::Arrival(double time, Simulation* s) : Event(time, s){
     _time = time;
     _simulation = s;
 }
 
+/**
+ * @brief Processus d'arrivée d'un client
+ */
 void Arrival::process() {
     Client* c = new Client(_time);
     cout << _time<<"s : Arrive d'un nouveau client "<<c<<"\t" ;
@@ -21,7 +26,7 @@ void Arrival::process() {
         ca->serve(c);
     }
 
-    double nextTimeArrival = b->getTime() + SimulationUtility::getValue(b->getTimeBetweenArrivals());
+    double nextTimeArrival = b->getTime() + SimulationUtility::getPoissonValue(b->getTimeBetweenArrivals());
     if(nextTimeArrival < b->getExpectedDuration()) {
         _simulation->add(new Arrival(nextTimeArrival, _simulation));
     }

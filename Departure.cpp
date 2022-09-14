@@ -1,12 +1,14 @@
-//
-// Created by arthur on 07/09/2022.
-//
-
 #include "header/Departure.h"
 
-Departure::Departure(double time, Simulation* simulation, Cashier *cashier) : Event(time, simulation){
+/**
+ * @brief Constructeur
+ * @param time Temps du départ du client
+ * @param s Simulation
+ * @param cashier Caissier qui traité le client
+ */
+Departure::Departure(double time, Simulation* s, Cashier *cashier) : Event(time, s){
     _time = time;
-    _simulation = simulation;
+    _simulation = s;
     _cashier = cashier;
 }
 
@@ -14,6 +16,9 @@ Departure::~Departure() noexcept {
 
 }
 
+/**
+ * @brief Processus de départ d'un client
+ */
 void Departure::process() {
     cout << _time<<"s : Depart du client "<<_cashier->getClient()<<" traite par le caissier ID "<<_cashier->getIdCashier()<<"\t" ;
     Bank* bank = (Bank*) _simulation;
@@ -30,4 +35,3 @@ void Departure::process() {
         bank->addFreeCashiersToList(_cashier);
     }
 }
-

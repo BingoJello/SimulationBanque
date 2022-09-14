@@ -14,7 +14,14 @@ bool check_number(string str) {
 }
 
 int main(int argc, char ** argv) {
-   
+    SimulationUtility::init();
+    double* averageServiceTimes = new double[3];
+    SimulationUtility::genRandomDoubles(4, 15, &averageServiceTimes, 3);
+
+    Bank *b = new Bank(30.0, 3, 2, averageServiceTimes);
+    b->startSimulation();
+    return 0;
+
     int nbCashier = 3;
     double dureeSimulation = 20.0;
     double timeBetweenArrivals = 5.0;
@@ -75,6 +82,7 @@ int main(int argc, char ** argv) {
     return 0;
 }
 
+
 /*
 int main() {
     SimulationUtility::init();
@@ -84,7 +92,5 @@ int main() {
     Bank *b = new Bank(30.0, 3, 2, averageServiceTimes);
     b->startSimulation();
     return 0;
-
-
 }
 */

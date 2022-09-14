@@ -1,10 +1,13 @@
-//
-// Created by arthur on 07/09/2022.
-//
-
 #include "header/Bank.h"
 #include <iostream>
 
+/**
+ * @brief Constructeur
+ * @param expectedDuration Temps attendu de la simulation
+ * @param nbCashiers Nombre de caissiers
+ * @param timeBetweenArrivals Temps moyen d'arrivée des clients
+ * @param averageServiceTime Temps moyen du temps de service d'un caissier
+ */
 Bank::Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals, double* averageServiceTime){
     _expectedDuration = expectedDuration;
     _nbrCashiers = nbCashiers;
@@ -15,22 +18,37 @@ Bank::Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals, 
         _freeCashiers.push_back(_cashiers[i]);
     }
     _queue = new Queue(this);
-    add(new Arrival(SimulationUtility::getValue(_timeBetweenArrivals), this));
+    add(new Arrival(SimulationUtility::getPoissonValue(_timeBetweenArrivals), this));
 }
 
+/**
+ * @brief Démarrage de la simulation
+ */
 void Bank::startSimulation() {
     this->run();
     this->getStats();
 }
 
+/**
+ *
+ * @return Temps attendu de la simulation
+ */
 double Bank::getExpectedDuration() {
     return _expectedDuration;
 }
 
+/**
+ *
+ * @return Temps moyen d'arrivée des clients
+ */
 double Bank::getTimeBetweenArrivals() {
     return _timeBetweenArrivals;
 }
 
+/**
+ *
+ * @return Le premier caissier libre
+ */
 Cashier* Bank::getFreeCashier() {
     if(_freeCashiers.empty()) return nullptr;
 
@@ -39,14 +57,25 @@ Cashier* Bank::getFreeCashier() {
     return c;
 }
 
+/**
+ *
+ * @return La file d'attente
+ */
 Queue* Bank::getQueue() {
     return _queue;
 }
 
+/**
+ * @brief Ajout un caissier libre dans une pile
+ * @param c Caissier
+ */
 void Bank::addFreeCashiersToList(Cashier* c) {
     _freeCashiers.push_back(c);
 }
 
+/**
+ * @brief Affiche les statistiques finaux de la simulation
+ */
 void Bank::getStats() {
     cout << "\n\n-----------Statistiques de fin de simulation----------------\n\n";
     cout << "Temps attendue de la simulation : " << _expectedDuration << "s\n";
