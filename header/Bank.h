@@ -29,15 +29,15 @@ private:
     Cashier** _cashiers;
     deque<Cashier*> _freeCashiers;
     Queue* _queue;
+    void getStats();
 public:
     Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals, double* averageServiceTime);
+    void startSimulation();
     double getExpectedDuration();
     double getTimeBetweenArrivals();
-    int getNbrCashiers();
-    int getNbServedClients();
     Cashier* getFreeCashier();
     Queue* getQueue();
-    deque<Cashier*> getFreeCashiersList();
+    void addFreeCashiersToList(Cashier* c);
 };
 
 

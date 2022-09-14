@@ -6,17 +6,18 @@
 
 Queue::Queue(Bank* b) {
     _bank = b;
-    _nbrMaxClient = 0;
     _lastModifTime = 0;
-    _timeClientSum = 0;
+    _timeSpentClients = 0;
+    _queueLength = 0;
     _nbrClientServed = 0;
 }
 
 void Queue::add(Client* c) {
     _clients.push_back(c);
     int size = _clients.size();
-    if(_nbrMaxClient < size){
-        _nbrMaxClient = size;
+    cout << size <<"yyyyyyyyyy";
+    if(_maxLength < size){
+        _maxLength = size;
     }
 }
 
@@ -24,6 +25,7 @@ Client* Queue::remove() {
     _nbrClientServed++;
     updateAverage();
     Client* c = _clients.front();
+    _timeSpentClients += (_bank->getTime() - c->getArrivalTime());
     _clients.pop_front();
     return c;
 }
@@ -38,16 +40,19 @@ int Queue::getMaxLength() {
 
 void Queue::updateAverage() {
     double timeDiff = _bank->getTime() - _lastModifTime;
-    _timeClientSum += _clients.size()*timeDiff;
+    _queueLength += _clients.size()*timeDiff;
     _lastModifTime = _bank->getTime();
 }
 
 /* Returns the number of client waiting in average in the queue */
 double Queue::getAverageLength() {
+    if(0 ==_bank->getTime()) return 0;
+
     updateAverage();
-    return _timeClientSum / _bank->getTime();
+    return _queueLength / _bank->getTime();
 }
 
 double Queue::getAverageWaitingTime() {
-    return _timeClientSum / _nbrClientServed;
+    if(0 == _nbrClientServed) return 0;
+    return _timeSpentClients / _nbrClientServed;
 }

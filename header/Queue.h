@@ -19,10 +19,10 @@ class Queue {
 private:
     Bank* _bank;
     deque<Client*> _clients;
-    int _nbrMaxClient;
     int _maxLength;
     double _lastModifTime;
-    double _timeClientSum;
+    double _timeSpentClients;
+    double _queueLength;
     int _nbrClientServed;
     void updateAverage();
 public:

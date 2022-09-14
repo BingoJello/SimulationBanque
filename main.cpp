@@ -81,9 +81,8 @@ int main() {
     double* averageServiceTimes = new double[3];
     SimulationUtility::genRandomDoubles(4, 15, &averageServiceTimes, 3);
 
-    Bank *b = new Bank(10.0, 3, 0.6, averageServiceTimes);
-    b->run();
-    std::cout << "Hello, World!" << std::endl;
+    Bank *b = new Bank(30.0, 3, 2, averageServiceTimes);
+    b->startSimulation();
     return 0;
 
 

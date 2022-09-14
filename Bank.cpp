@@ -18,20 +18,17 @@ Bank::Bank(double expectedDuration, int nbCashiers, double timeBetweenArrivals, 
     add(new Arrival(SimulationUtility::getValue(_timeBetweenArrivals), this));
 }
 
+void Bank::startSimulation() {
+    this->run();
+    this->getStats();
+}
+
 double Bank::getExpectedDuration() {
     return _expectedDuration;
 }
 
 double Bank::getTimeBetweenArrivals() {
     return _timeBetweenArrivals;
-}
-
-int Bank::getNbrCashiers() {
-    return _nbrCashiers;
-}
-
-int Bank::getNbServedClients() {
-    return 0;
 }
 
 Cashier* Bank::getFreeCashier() {
@@ -46,6 +43,22 @@ Queue* Bank::getQueue() {
     return _queue;
 }
 
-deque<Cashier *> Bank::getFreeCashiersList() {
-    return _freeCashiers;
+void Bank::addFreeCashiersToList(Cashier* c) {
+    _freeCashiers.push_back(c);
+}
+
+void Bank::getStats() {
+    cout << "\n\n-----------Statistiques de fin de simulation----------------\n\n";
+    cout << "Temps attendue de la simulation : " << _expectedDuration << "s\n";
+    cout << "Temps reel de la simulation : " << this->getTime() <<"s\n";
+    cout << "Temps d'attente moyen dans la file d'attente : " <<_queue->getAverageWaitingTime() <<"s\n";
+    cout << "Taille moyenne de la file de la file d'attente : "<< _queue->getAverageLength() << "\n";
+    cout << "Taille maximale de la file de la file d'attente : "<< _queue->getMaxLength() << "\n";
+
+    for(int i = 0; i < _nbrCashiers; i++){
+        cout << "Cashier ID "<<_cashiers[i]->getIdCashier()<<" : Taux d'occupation = "<<_cashiers[i]->getAverageOccupationTime() * 100
+            <<"% du temps total et nombre client servis = "<<_cashiers[i]->getNbServedClients()<<"\n";
+    }
+
+    cout <<"Fin simulation :"<<this->getTime()<<"\n"<<endl;
 }

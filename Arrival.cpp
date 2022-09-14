@@ -10,14 +10,14 @@ Arrival::Arrival(double time, Simulation* s) : Event(time, s){
 
 void Arrival::process() {
     Client* c = new Client(_time);
-    cout << "nouvelle arrive a "<<_time<<" du client "<<c<<"\t" ;
+    cout << _time<<"s : Arrive d'un nouveau client "<<c<<"\t" ;
     Bank* b = (Bank*) _simulation;
     Cashier* ca = b->getFreeCashier();
     if(nullptr == ca){
-        cout << "le client est ajouter dans la file\n" ;
+        cout << "Le client est ajoute dans la file d'attente\n" ;
         b->getQueue()->add(c);
     } else{
-        cout << "le client est servi par le caissier ID = " <<ca->getIdCashier()<<"\n" ;
+        cout << "Le client est servi par le caissier ID " <<ca->getIdCashier()<<"\n" ;
         ca->serve(c);
     }
 
