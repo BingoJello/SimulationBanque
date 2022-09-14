@@ -19,7 +19,6 @@ Queue::Queue(Bank* b) {
 void Queue::add(Client* c) {
     _clients.push_back(c);
     int size = _clients.size();
-    cout << size <<"yyyyyyyyyy";
     if(_maxLength < size){
         _maxLength = size;
     }

@@ -89,5 +89,5 @@ void Bank::getStats() {
             <<"% du temps total et nombre client servis = "<<_cashiers[i]->getNbServedClients()<<"\n";
     }
 
-    cout <<"Fin simulation :"<<this->getTime()<<"\n"<<endl;
+    cout <<"Fin simulation : "<<this->getTime()<<"s\n"<<endl;
 }
