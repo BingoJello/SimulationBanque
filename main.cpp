@@ -15,13 +15,6 @@ bool check_number(string str) {
 
 
 int main(int argc, char ** argv) {
-    SimulationUtility::init();
-    double* averageServiceTimes = new double[3];
-    SimulationUtility::genRandomDoubles(4, 15, &averageServiceTimes, 3);
-
-    Bank *b = new Bank(30.0, 3, 2, averageServiceTimes);
-    b->startSimulation();
-    return 0;
 
     int nbCashier = 3;
     double dureeSimulation = 40.0;
@@ -33,6 +26,7 @@ int main(int argc, char ** argv) {
        
         int i, x;
         int ch = 0;
+        int checker1 = 0;
         for (i=1; i<argc; i++) {
             for (x = 0; x < strlen(argv[i]); x++) {
                 ch = argv[i][x];
@@ -59,8 +53,6 @@ int main(int argc, char ** argv) {
                 else if (ch == 'A'){
                     if (check_number(argv[i+1]))
                         averageServiceTime = atoi(argv[i+1]);
-                }else{
-                    cerr << "Wrong paramètre" << endl;
                 }
 
             }
@@ -69,10 +61,10 @@ int main(int argc, char ** argv) {
         cerr << "Pas d'argument ajouter\n";
     }
 
-    cout << "nC <nbCashier> : Entrer le nombre de Cashier: " << nbCashier
-     << "\n dS <dureeSimulation> : Entrer la duree de la simulation: " << dureeSimulation
-     << "\n tBA <timeBetweenArrivals> : Entrer le temps entre les arrivees: " << timeBetweenArrivals
-     << "\n aST <averageServiceTime> : Entrer le temps moyen entre les arrivees: " << averageServiceTime;
+    cout << "C <nbCashier> : Entrer le nombre de Cashier: " << nbCashier
+     << "\n S <dureeSimulation> : Entrer la duree de la simulation: " << dureeSimulation
+     << "\n A <timeBetweenArrivals> : Entrer le temps entre les arrivees: " << timeBetweenArrivals
+     << "\n T <averageServiceTime> : Entrer le temps moyen entre les arrivees: " << averageServiceTime;
 
     SimulationUtility::init();
     double* averageServiceTimes = new double[averageServiceTime];
