@@ -1,16 +1,12 @@
-//
-// Created by arthur on 07/09/2022.
-//
-
 #ifndef SIMULATIONBANQUE_QUEUE_H
 #define SIMULATIONBANQUE_QUEUE_H
 
 #include <vector>
 #include <deque>
-using namespace std;
-
 #include "Bank.h"
 #include "Client.h"
+
+using namespace std;
 
 class Client;
 class Bank;

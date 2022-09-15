@@ -1,13 +1,17 @@
-//
-// Created by arthur on 07/09/2022.
-
 #include "header/Simulation.h"
-#include <iostream>
+
+/**
+ * @brief Ajout un nouvel événement dans la simulation
+ * @param e Événement
+ */
 
 void Simulation::add(Event *e) {
     _events.insert(e);
 }
 
+/**
+ * @brief Démarre la simulation
+ */
 void Simulation::run() {
     for(_eventIterator = _events.begin() ; _eventIterator != _events.end() ; ++_eventIterator) {
         Event *e = *_eventIterator;
@@ -16,6 +20,10 @@ void Simulation::run() {
     }
 }
 
+/**
+ * @brief Renvoie le temps de la simulation
+ * @return Temps simulation
+ */
 double Simulation::getTime() {
     return _time;
 }

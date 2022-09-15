@@ -1,7 +1,3 @@
-//
-// Created by arthur on 07/09/2022.
-//
-
 #ifndef SIMULATIONBANQUE_SIMULATION_H
 #define SIMULATIONBANQUE_SIMULATION_H
 
@@ -13,6 +9,9 @@ using namespace std;
 class Event;
 
 /* Struct used to compare two events for the set of events */
+/**
+ * @brief Structure qui compare le temps d'arrivé deux événements
+ */
 struct EventComp {
     bool operator()(const Event* lhs, const Event* rhs) const  {
         /* Events are compared using their execution time */

@@ -1,7 +1,3 @@
-//
-// Created by arthur on 11/09/2022.
-//
-
 #ifndef SIMULATIONBANQUE_CASHIER_H
 #define SIMULATIONBANQUE_CASHIER_H
 
@@ -24,7 +20,6 @@ public:
     void serve(Client* client);
     Client* getClient();
     void releaseClient();
-    bool isFree();
     int getNbServedClients();
     double getAverageOccupationTime();
     int getIdCashier();

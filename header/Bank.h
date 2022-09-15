@@ -1,14 +1,3 @@
-/**
- * @file Bank.h
- * @author your name (you@domain.com)
- * @brief 
- * @version 0.1
- * @date 2022-09-13
- * 
- * @copyright Copyright (c) 2022
- * 
- */
-
 #ifndef SIMULATIONBANQUE_BANK_H
 #define SIMULATIONBANQUE_BANK_H
 
@@ -39,6 +28,5 @@ public:
     Queue* getQueue();
     void addFreeCashiersToList(Cashier* c);
 };
-
 
 #endif //SIMULATIONBANQUE_BANK_H
