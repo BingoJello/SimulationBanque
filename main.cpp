@@ -13,22 +13,19 @@ bool check_number(string str) {
     return true;
 }
 
+
 int main(int argc, char ** argv) {
    
     int nbCashier = 3;
-    double dureeSimulation = 20.0;
+    double dureeSimulation = 40.0;
     double timeBetweenArrivals = 5.0;
-    double averageServiceTime = 3.0;
+    int averageServiceTime = 3;
 
     int i=1;
     if(argc>1){
        
         int i, x;
         int ch = 0;
-        /**
-         * @brief ajoute un paramètre
-         * 
-         */
         for (i=1; i<argc; i++) {
             for (x = 0; x < strlen(argv[i]); x++) {
                 ch = argv[i][x];
@@ -70,10 +67,17 @@ int main(int argc, char ** argv) {
      << "\n tBA <timeBetweenArrivals> : Entrer le temps entre les arrivees: " << timeBetweenArrivals
      << "\n aST <averageServiceTime> : Entrer le temps moyen entre les arrivees: " << averageServiceTime;
 
+    SimulationUtility::init();
+    double* averageServiceTimes = new double[averageServiceTime];
+    SimulationUtility::genRandomDoubles(4, 15, &averageServiceTimes, 3);
 
+    Bank *b = new Bank(dureeSimulation, nbCashier, timeBetweenArrivals, averageServiceTimes);
+    b->startSimulation();
     
     return 0;
 }
+
+
 
 /*
 int main() {

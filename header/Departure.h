@@ -1,6 +1,3 @@
-//
-// Created by arthur on 07/09/2022.
-//
 
 #ifndef SIMULATIONBANQUE_DEPARTURE_H
 #define SIMULATIONBANQUE_DEPARTURE_H
@@ -17,6 +14,7 @@ private:
     Cashier* _cashier;
     Simulation* _simulation;
 public:
+   
     Departure(double time, Simulation* simulation, Cashier* cashier);
     ~Departure();
     void process();
