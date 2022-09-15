@@ -64,8 +64,8 @@ int main(int argc, char ** argv) {
     cout << "C <nbCashier> : Entrer le nombre de Cashier: " << nbCashier
      << "\n S <dureeSimulation> : Entrer la duree de la simulation: " << dureeSimulation
      << "\n A <timeBetweenArrivals> : Entrer le temps entre les arrivees: " << timeBetweenArrivals
-     << "\n T <averageServiceTime> : Entrer le temps moyen entre les arrivees: " << averageServiceTime;
-
+     << "\n T <averageServiceTime> : Entrer le temps moyen entre les arrivees: " << averageServiceTime
+    << "\n";
     SimulationUtility::init();
     double* averageServiceTimes = new double[averageServiceTime];
     SimulationUtility::genRandomDoubles(4, 15, &averageServiceTimes, 3);
