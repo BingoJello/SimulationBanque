@@ -1,17 +1,5 @@
 #include "header/Simulation.h"
 
-/**
- * @brief Ajout un nouvel événement dans la simulation
- * @param e Événement
- */
-
-void Simulation::add(Event *e) {
-    _events.insert(e);
-}
-
-/**
- * @brief Démarre la simulation
- */
 void Simulation::run() {
     for(_eventIterator = _events.begin() ; _eventIterator != _events.end() ; ++_eventIterator) {
         Event *e = *_eventIterator;
@@ -20,10 +8,10 @@ void Simulation::run() {
     }
 }
 
-/**
- * @brief Renvoie le temps de la simulation
- * @return Temps simulation
- */
+void Simulation::add(Event *e) {
+    _events.insert(e);
+}
+
 double Simulation::getTime() {
     return _time;
 }

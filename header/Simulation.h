@@ -8,7 +8,6 @@ using namespace std;
 
 class Event;
 
-/* Struct used to compare two events for the set of events */
 /**
  * @brief Structure qui compare le temps d'arrivé deux événements
  */
@@ -25,10 +24,20 @@ protected:
     set<Event*, EventComp>::iterator _eventIterator;
     double _time;
 public:
+    /**
+    * @brief Démarre la simulation
+    */
     void run();
+    /**
+    * @brief Ajout un nouvel événement dans la simulation
+    * @param e Événement
+    */
     void add(Event* e);
+    /**
+    * @brief Renvoie le temps de la simulation
+    * @return Temps simulation
+    */
     double getTime();
 };
-
 
 #endif //SIMULATIONBANQUE_SIMULATION_H

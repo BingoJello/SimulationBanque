@@ -13,8 +13,20 @@ private:
     Cashier* _cashier;
     Simulation* _simulation;
 public:
+    /**
+    * @brief Constructeur
+    * @param time Temps du départ du client
+    * @param s Simulation
+    * @param cashier Caissier qui traité le client
+    */
     Departure(double time, Simulation* s, Cashier* cashier);
+    /**
+     * @brief Destructeur
+     */
     ~Departure();
+    /**
+     * @brief Processus de départ d'un client
+     */
     void process();
 };
 
