@@ -14,7 +14,6 @@ bool check_number(string str) {
     return true;
 }
 
-
 int main(int argc, char ** argv) {
 
     int nbCashier = 3;
@@ -81,11 +80,8 @@ int main(int argc, char ** argv) {
                             cerr << "Argument invalide : Vérifier que la valeur est bien un nombre\n";
                             exit(1);
                         }
-
                     }
                 }
-
-
             }
         }
     }else{
@@ -119,4 +115,3 @@ int main(int argc, char ** argv) {
     b->startSimulation();
     return 0;
 }
-*/
