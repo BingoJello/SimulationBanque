@@ -18,96 +18,105 @@ bool check_number(string str) {
 int main(int argc, char ** argv) {
 
     int nbCashier = 3;
-    double dureeSimulation = 40.0;
+    double dureeSimulation = 100.0;
     double timeBetweenArrivals = 5.0;
-    int averageServiceTime = 3;
+    int averageServiceTime = -1;
 
     set<char> setArgument;
 
-    int i=1;
     if(argc>1){
-       
-        int i, x;
         int ch = 0;
-        for (i=1; i<argc; i++) {
-            for (x = 0; x < strlen(argv[i]); x++) {
-                ch = argv[i][x];
+        for (int i=1; i<argc; i++) {
+            for (int j = 0; j < strlen(argv[i]); j++) {
+                ch = argv[i][j];
                 if (setArgument.count(ch) || argc > 9){
-                    cerr << "Argument invalid\n";
+                    cerr << "Argument invalide\n";
                     exit(1);
                 }
                 else{
                     if (ch == 'h'){
-                    setArgument.insert('h');
-                    cout << "-h : help\n" << endl;
-                    cout << "-C <nbCashier> : Entrer le nombre de Cashier" << endl;
-                    cout << "-S <dureeSimulation> : Entrer la durée de la simulation" << endl;
-                    cout << "-A <timeBetweenArrivals> : Entrer le temps entre les arrivées" << endl;
-                    cout << "-T <averageServiceTime> : Entrer le temps moyen entre les arriveées" << endl;
-                    exit(0);
+                        setArgument.insert('h');
+                        cout << "-h : help\n"
+                             << "-c <nbCaissier> : Entrez le nombre de caissier \n"
+                             << "-s <dureeSimulation> : Entrez la durée de la simulation \n"
+                             << "-a <timeBetweenArrivals> : Entrez le temps moyen de service des caissiers \n"
+                             << "-t <averageServiceTime> : Entrez l'intervalle de temps moyen d'arrivée des clients \n";
+                        exit(0);
                     }
-                    else if (ch == 'C'){
+                    else if (ch == 'c'){
                         if (check_number(argv[i+1])){
-                            setArgument.insert('C');
+                            setArgument.insert('c');
                             nbCashier = atoi(argv[i+1]);
                         }else{
-                            cerr << "Argument invalid\n";
+                            cerr << "Argument invalide : Vérifier que la valeur est bien un nombre\n";
                             exit(1);
                         }
-                       
+
                     }
-                    else if (ch == 'S'){
+                    else if (ch == 's'){
                         if (check_number(argv[i+1])){
-                            setArgument.insert('S');
+                            setArgument.insert('s');
                             dureeSimulation = atoi(argv[i+1]);
                         }else{
-                            cerr << "Argument invalid\n";
+                            cerr << "Argument invalide : Vérifier que la valeur est bien un nombre\n";
                             exit(1);
                         }
-                        
+
                     }
-                    else if (ch == 'T'){
+                    else if (ch == 't'){
                         if (check_number(argv[i+1])){
-                            setArgument.insert('T');
+                            setArgument.insert('t');
                             timeBetweenArrivals = atoi(argv[i+1]);
                         }else{
-                            cerr << "Argument invalid\n";
+                            cerr << "Argument invalide : Vérifier que la valeur est bien un nombre\n";
                             exit(1);
                         }
-                        
+
                     }
-                    else if (ch == 'A'){
+                    else if (ch == 'a'){
                         if (check_number(argv[i+1])){
-                            setArgument.insert('A');
+                            setArgument.insert('s');
                             averageServiceTime = atoi(argv[i+1]);
                         }else{
-                            cerr << "Argument invalid\n";
+                            cerr << "Argument invalide : Vérifier que la valeur est bien un nombre\n";
                             exit(1);
                         }
-                        
+
                     }
                 }
-                
+
 
             }
         }
     }else{
-        cerr << "Pas d'argument ajouter\n\n";
+        cerr << "Pas d'argument ajouté\n\n";
     }
-    cout << "################## Liste de parametres d'entres ######################\n"
-        << "\n C <nbCashier> : Entrer le nombre de Cashier: " << nbCashier << "s"
-        << "\n S <dureeSimulation> : Entrer la duree de la simulation: " << dureeSimulation << "s"
-        << "\n A <timeBetweenArrivals> : Entrer le temps entre les arrivees: " << timeBetweenArrivals << "s"
-        << "\n T <averageServiceTime> : Entrer le temps moyen entre les arrivees: " << averageServiceTime << "s"
-        << "\n\n"
-        << "###################### Debut de la Simulation ##################\n\n";
 
     SimulationUtility::init();
     double* averageServiceTimes = new double[nbCashier];
-    SimulationUtility::genRandomDoubles(4, 15, &averageServiceTimes, 3);
+
+    if(-1 == averageServiceTime){
+        SimulationUtility::genRandomDoubles(4, 15, &averageServiceTimes, nbCashier);
+    } else {
+        for(int i=0; i<nbCashier; i++){
+            averageServiceTimes[i] = averageServiceTime;
+        }
+    }
+
+    cout << "\n\n############### Paramètres de la simulation ###############\n\n"
+         << "\n Nombre de caissiers : " << nbCashier
+         << "\n Durée de la simulation : " << dureeSimulation << "s"
+         << "\n Intervalle de temps moyen d'arrivée des clients : " << timeBetweenArrivals << "s";
+
+    if(-1 == averageServiceTime){
+        cout << "\n Temps moyen de service des caissiers: aléatoire \n\n";
+    } else {
+        cout << "\n Temps moyen de service des caissiers: " << averageServiceTime << "s\n\n";
+    }
+    cout << "\n\n############### Début de la simulation ###############\n\n";
 
     Bank *b = new Bank(dureeSimulation, nbCashier, timeBetweenArrivals, averageServiceTimes);
     b->startSimulation();
-    
     return 0;
 }
+*/
