@@ -8,7 +8,7 @@ all: depend $(OBJ)
 depend:
 	sed '/^#DEP/q' makefile > mk.tmp
 	c++ -M *.cpp >> mk.tmp
-	mv mk.tmp Makefile
+	mv mk.tmp makefile
 
 
 clean: clean_o

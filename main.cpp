@@ -103,7 +103,7 @@ int main(int argc, char ** argv) {
         << "###################### Debut de la Simulation ##################\n\n";
 
     SimulationUtility::init();
-    double* averageServiceTimes = new double[averageServiceTime];
+    double* averageServiceTimes = new double[nbCashier];
     SimulationUtility::genRandomDoubles(4, 15, &averageServiceTimes, 3);
 
     Bank *b = new Bank(dureeSimulation, nbCashier, timeBetweenArrivals, averageServiceTimes);
