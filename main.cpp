@@ -46,21 +46,45 @@ int main(int argc, char ** argv) {
                     cout << "-T <averageServiceTime> : Entrer le temps moyen entre les arriveées" << endl;
                     exit(0);
                     }
-                    else if (ch == 'C' && check_number(argv[i+1])){
-                        setArgument.insert('C');
-                        nbCashier = atoi(argv[i+1]);
+                    else if (ch == 'C'){
+                        if (check_number(argv[i+1])){
+                            setArgument.insert('C');
+                            nbCashier = atoi(argv[i+1]);
+                        }else{
+                            cerr << "Argument invalid\n";
+                            exit(1);
+                        }
+                       
                     }
-                    else if (ch == 'S' && check_number(argv[i+1])){
-                        setArgument.insert('S');
-                        dureeSimulation = atoi(argv[i+1]);
+                    else if (ch == 'S'){
+                        if (check_number(argv[i+1])){
+                            setArgument.insert('S');
+                            dureeSimulation = atoi(argv[i+1]);
+                        }else{
+                            cerr << "Argument invalid\n";
+                            exit(1);
+                        }
+                        
                     }
-                    else if (ch == 'T' && check_number(argv[i+1])){
-                        setArgument.insert('T');
-                        timeBetweenArrivals = atoi(argv[i+1]);
+                    else if (ch == 'T'){
+                        if (check_number(argv[i+1])){
+                            setArgument.insert('T');
+                            timeBetweenArrivals = atoi(argv[i+1]);
+                        }else{
+                            cerr << "Argument invalid\n";
+                            exit(1);
+                        }
+                        
                     }
-                    else if (ch == 'A' && check_number(argv[i+1])){
-                        setArgument.insert('A');
-                        averageServiceTime = atoi(argv[i+1]);
+                    else if (ch == 'A'){
+                        if (check_number(argv[i+1])){
+                            setArgument.insert('A');
+                            averageServiceTime = atoi(argv[i+1]);
+                        }else{
+                            cerr << "Argument invalid\n";
+                            exit(1);
+                        }
+                        
                     }
                 }
                 
@@ -87,17 +111,3 @@ int main(int argc, char ** argv) {
     
     return 0;
 }
-
-
-
-/*
-int main() {
-    SimulationUtility::init();
-    double* averageServiceTimes = new double[3];
-    SimulationUtility::genRandomDoubles(4, 15, &averageServiceTimes, 3);
-
-    Bank *b = new Bank(30.0, 3, 2, averageServiceTimes);
-    b->startSimulation();
-    return 0;
-}
-*/
