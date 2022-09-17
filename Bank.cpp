@@ -81,8 +81,8 @@ void Bank::getStats() {
     cout << "Temps attendue de la simulation : " << _expectedDuration << "s\n";
     cout << "Temps reel de la simulation : " << this->getTime() <<"s\n";
     cout << "Temps d'attente moyen dans la file d'attente : " <<_queue->getAverageWaitingTime() <<"s\n";
-    cout << "Taille moyenne de la file de la file d'attente : "<< _queue->getAverageLength() << "\n";
-    cout << "Taille maximale de la file de la file d'attente : "<< _queue->getMaxLength() << "\n";
+    cout << "Taille moyenne de la file d'attente : "<< _queue->getAverageLength() << "\n";
+    cout << "Taille maximale de la file d'attente : "<< _queue->getMaxLength() << "\n";
 
     for(int i = 0; i < _nbrCashiers; i++){
         cout << "Cashier ID "<<_cashiers[i]->getIdCashier()<<" : Taux d'occupation = "<<_cashiers[i]->getAverageOccupationTime() * 100
