@@ -1,6 +1,6 @@
 # SimulationBanque
 
-<h3> Compilation du Programme<h3>
+<h3> Compilation du Programme</h3>
 <p>Pour compiler le programme, on peut utiliser cette liste de commande.</p>
 <ul>
     <p><li><strong>make / make all :</strong> Cette commande permet de compiler et construire le programme sous le
