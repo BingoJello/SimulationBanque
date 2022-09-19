@@ -1,6 +1,6 @@
 # SimulationBanque
 
-<h3> Compilation du Programme</h3>
+## Compilation du Programme
 <p>Pour compiler le programme, on peut utiliser cette liste de commande.</p>
 <ul>
     <p><li><strong>make / make all :</strong> Cette commande permet de compiler et construire le programme sous le
@@ -12,7 +12,8 @@
     <p><li><strong>make clean :</strong> Supprime tous les fichiers .o générés lors de la compilation et l'executable.</li></p>
     <p><li><strong>make doxygene :</strong> Génère une documentation du programme en doxygène.</li></p>
 </u>
-<h3> Démarrage du Programme</h3>
+
+## Démarrage du Programme
 <p>Une fois que la compilation est finie, un exécutable <strong>simulationBank</strong> va être généré.
 Pour lancer l'éxecutable on peut soit le lancer avec des des arguments ou sans argument.</p> 
 <p> -h: (help) permet d'avoir de l'aide sur les arguments à utiliser. </p>
@@ -25,7 +26,8 @@ Pour lancer l'éxecutable on peut soit le lancer avec des des arguments ou sans 
     <p> <li> -a: qui reçoit un int ou double pour le temps moyen de service.</li> </p>
 
 </ul>
-<h3> Exemple de Programme</h3>
+
+## Exemple de Programme
 
 ~~~
 ./simulationBank.out -c 3 -s 200 -t 2 -a 3
