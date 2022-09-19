@@ -36,8 +36,8 @@ int main(int argc, char ** argv) {
                     if (ch == 'h'){
                         setArgument.insert('h');
                         cout << "-h : help\n"
-                             << "-c <nbCaissier> : Entrez le nombre de caissier \n"
                              << "-s <dureeSimulation> : Entrez la durée de la simulation \n"
+                             << "-c <nbCaissier> : Entrez le nombre de caissier \n"
                              << "-a <timeBetweenArrivals> : Entrez le temps moyen de service des caissiers \n"
                              << "-t <averageServiceTime> : Entrez l'intervalle de temps moyen d'arrivée des clients \n";
                         exit(0);
