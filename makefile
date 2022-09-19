@@ -1,6 +1,7 @@
 
 OBJ = Arrival.o Bank.o Cashier.o Client.o Departure.o Event.o Queue.o Simulation.o main.o
 
+TARGET=simulationBank.out
 
 all: depend $(OBJ)
 	c++ -o simulationBank.out $(OBJ)
@@ -10,6 +11,9 @@ depend:
 	c++ -M *.cpp >> mk.tmp
 	mv mk.tmp makefile
 
+simule:
+	./$(TARGET)
+
 
 clean: clean_o
 	rm -rfv mk.tmp
@@ -17,6 +21,9 @@ clean: clean_o
 
 clean_o:
 	rm -rfv *.o
+
+doxygen:
+	doxygen Doxyfile
 
 #DEPENDENCIES: list of dependencies do not remove
 Arrival.o: Arrival.cpp header/Arrival.h \

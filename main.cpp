@@ -9,7 +9,7 @@ using namespace std;
 
 bool check_number(string str) {
    for (int i = 0; i < str.length(); i++)
-   if (isdigit(str[i]) == false)
+   if (isdigit(str[i]) == false && str[i] != '.')
       return false;
     return true;
 }
@@ -43,41 +43,41 @@ int main(int argc, char ** argv) {
                         exit(0);
                     }
                     else if (ch == 'c'){
-                        if (check_number(argv[i+1])){
+                        if (check_number(argv[i+1]) && atoi(argv[i+1])> 0){
                             setArgument.insert('c');
                             nbCashier = atoi(argv[i+1]);
                         }else{
-                            cerr << "Argument invalide : Vérifier que la valeur est bien un nombre\n";
+                            cerr << "Argument invalide : Vérifier que la valeur est bien un nombre et supérieur à 0\n";
                             exit(1);
                         }
 
                     }
                     else if (ch == 's'){
-                        if (check_number(argv[i+1])){
+                        if (check_number(argv[i+1]) && atoi(argv[i+1]) > 0){
                             setArgument.insert('s');
                             dureeSimulation = atoi(argv[i+1]);
                         }else{
-                            cerr << "Argument invalide : Vérifier que la valeur est bien un nombre\n";
+                            cerr << "Argument invalide : Vérifier que la valeur est bien un nombre et supérieur à 0\n";
                             exit(1);
                         }
 
                     }
                     else if (ch == 't'){
-                        if (check_number(argv[i+1])){
+                        if (check_number(argv[i+1]) && atoi(argv[i+1]) > 0){
                             setArgument.insert('t');
                             timeBetweenArrivals = atoi(argv[i+1]);
                         }else{
-                            cerr << "Argument invalide : Vérifier que la valeur est bien un nombre\n";
+                            cerr << "Argument invalide : Vérifier que la valeur est bien un nombre et supérieur à 0\n";
                             exit(1);
                         }
 
                     }
                     else if (ch == 'a'){
-                        if (check_number(argv[i+1])){
+                        if (check_number(argv[i+1]) && atoi(argv[i+1]) > 0){
                             setArgument.insert('s');
                             averageServiceTime = atoi(argv[i+1]);
                         }else{
-                            cerr << "Argument invalide : Vérifier que la valeur est bien un nombre\n";
+                            cerr << "Argument invalide : Vérifier que la valeur est bien un nombre et supérieur à 0\n";
                             exit(1);
                         }
                     }
