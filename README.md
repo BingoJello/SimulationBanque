@@ -10,6 +10,6 @@
     </li> </p>
     <p><li><strong>make clean_o :</strong> Supprime tous les fichiers .o générés lors de la compilation.</li></p>
     <p><li><strong>make clean :</strong> Supprime tous les fichiers .o générés lors de la compilation et l'executable.</li></p>
-    <p><li><strong>make doxy :</strong> Génère une documentation du programme en doxygène.</li></p>
+    <p><li><strong>make doxygène :</strong> Génère une documentation du programme en doxygène.</li></p>
 </u>
 <h3> Démarrage du Programme<h3>
