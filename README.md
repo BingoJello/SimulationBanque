@@ -26,9 +26,10 @@ Pour lancer l'éxecutable on peut soit le lancer avec des des arguments ou sans 
 
 </ul>
 <h3> Exemple de Programme</h3>
-```
+
+~~~
 ./simulationBank.out -c 3 -s 200 -t 2 -a 3
-```
+~~~
 <h3> Résultats de la simulation</h3>
 
 ~~~
