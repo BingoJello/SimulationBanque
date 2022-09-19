@@ -30,7 +30,7 @@ La liste d'arguments sont:
 ~~~
 ./simulationBank.out -c 3 -s 200 -t 2 -a 3
 ~~~
-<h3> Résultats de la simulation</h3>
+<h3> Une partie du résulat de la simulation</h3>
 
 ~~~
 -----------Statistiques de fin de simulation----------------
