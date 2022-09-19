@@ -43,9 +43,9 @@ int main(int argc, char ** argv) {
                         exit(0);
                     }
                     else if (ch == 'c'){
-                        if (check_number(argv[i+1]) && atoi(argv[i+1])> 0){
+                        if (check_number(argv[i+1])){
                             setArgument.insert('c');
-                            nbCashier = atoi(argv[i+1]);
+                            nbCashier = atof(argv[i+1]);
                         }else{
                             cerr << "Argument invalide : Vérifier que la valeur est bien un nombre et supérieur à 0\n";
                             exit(1);
@@ -53,9 +53,9 @@ int main(int argc, char ** argv) {
 
                     }
                     else if (ch == 's'){
-                        if (check_number(argv[i+1]) && atoi(argv[i+1]) > 0){
+                        if (check_number(argv[i+1])){
                             setArgument.insert('s');
-                            dureeSimulation = atoi(argv[i+1]);
+                            dureeSimulation = atof(argv[i+1]);
                         }else{
                             cerr << "Argument invalide : Vérifier que la valeur est bien un nombre et supérieur à 0\n";
                             exit(1);
@@ -63,9 +63,9 @@ int main(int argc, char ** argv) {
 
                     }
                     else if (ch == 't'){
-                        if (check_number(argv[i+1]) && atoi(argv[i+1]) > 0){
+                        if (check_number(argv[i+1])){
                             setArgument.insert('t');
-                            timeBetweenArrivals = atoi(argv[i+1]);
+                            timeBetweenArrivals = atof(argv[i+1]);
                         }else{
                             cerr << "Argument invalide : Vérifier que la valeur est bien un nombre et supérieur à 0\n";
                             exit(1);
@@ -73,9 +73,9 @@ int main(int argc, char ** argv) {
 
                     }
                     else if (ch == 'a'){
-                        if (check_number(argv[i+1]) && atoi(argv[i+1]) > 0){
+                        if (check_number(argv[i+1])){
                             setArgument.insert('s');
-                            averageServiceTime = atoi(argv[i+1]);
+                            averageServiceTime = atof(argv[i+1]);
                         }else{
                             cerr << "Argument invalide : Vérifier que la valeur est bien un nombre et supérieur à 0\n";
                             exit(1);
