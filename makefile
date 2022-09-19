@@ -1,3 +1,5 @@
+INC_PATH = header/
+DOC_PATH = doc/
 
 OBJ = Arrival.o Bank.o Cashier.o Client.o Departure.o Event.o Queue.o Simulation.o main.o
 

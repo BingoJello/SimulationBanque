@@ -74,7 +74,7 @@ int main(int argc, char ** argv) {
                     }
                     else if (ch == 'a'){
                         if (check_number(argv[i+1])){
-                            setArgument.insert('s');
+                            setArgument.insert('a');
                             averageServiceTime = atof(argv[i+1]);
                         }else{
                             cerr << "Argument invalide : Vérifier que la valeur est bien un nombre et supérieur à 0\n";
