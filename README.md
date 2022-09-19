@@ -1,31 +1,29 @@
 # SimulationBanque
 
 ## Compilation du Programme
-<p>Pour compiler le programme, on peut utiliser cette liste de commande.</p>
-<ul>
-    <p><li><strong>make / make all :</strong> Cette commande permet de compiler et construire le programme sous le
-        nom: <em>simulationBank.out</em>
-    </li> </p>
-    <p><li><strong>make simule :</strong> Execute un exemple de la simulation avec les paramètres par défaut.
-    </li> </p>
-    <p><li><strong>make clean_o :</strong> Supprime tous les fichiers .o générés lors de la compilation.</li></p>
-    <p><li><strong>make clean :</strong> Supprime tous les fichiers .o générés lors de la compilation et l'executable.</li></p>
-    <p><li><strong>make doxygene :</strong> Génère une documentation du programme en doxygène.</li></p>
-</u>
+Pour compiler le programme, on peut utiliser cette liste de commande.
+
+* **-make / make all** : Cette commande permet de compiler et construire le programme sous le nom: **simulationBank.out**
+     
+* **-make simule** : Execute un exemple de la simulation avec les paramètres par défaut.
+     
+* **-make clean_o** : Supprime tous les fichiers .o générés lors de la compilation.
+* **-make clean**: Supprime tous les fichiers .o générés lors de la compilation et l'executable.
+* **-make doxygene**: Génère une documentation du programme en doxygène.
+
 
 ## Démarrage du Programme
-<p>Une fois que la compilation est finie, un exécutable <strong>simulationBank</strong> va être généré.
-Pour lancer l'éxecutable on peut soit le lancer avec des des arguments ou sans argument.</p> 
-<p> -h: (help) permet d'avoir de l'aide sur les arguments à utiliser. </p>
+Une fois que la compilation est finie, un exécutable simulationBank va être généré.
+Pour lancer l'éxecutable on peut soit le lancer avec des des arguments ou sans argument. 
+ -h: (help) permet d'avoir de l'aide sur les arguments à utiliser. 
 
-<p>La liste d'arguments sont:</p>
-<ul>
-    <p> <li> -c: qui reçoit un int pour le nombre de cashier.</li> </p>
-    <p> <li> -s: qui reçoit un int pour la durée totale de simulation.</li> </p>
-    <p> <li> -t: qui reçoit un int ou double pour le temps entre les arrivées.</li> </p>
-    <p> <li> -a: qui reçoit un int ou double pour le temps moyen de service.</li> </p>
+La liste d'arguments sont:
+* **-c**: qui reçoit un int pour le nombre de cashier. 
+* **-s**: qui reçoit un int pour la durée totale de simulation. 
+* **-t**: qui reçoit un int ou double pour le temps entre les arrivées. 
+* **-a**: qui reçoit un int ou double pour le temps moyen de service. 
 
-</ul>
+
 
 ## Exemple de Programme
 
