@@ -17,7 +17,6 @@ public:
     static void init(int seed = 0) {
         srand(seed ? seed : getpid());
     }
-
     /**
      * @brief Récupère une valeur aléatoire selon une loi de poisson
      * @param moy Moyenne
@@ -26,7 +25,6 @@ public:
     static double getPoissonValue(double moy = 1.0) {
         return -log(((double)rand()/RAND_MAX))*moy;
     }
-
     /**
      * @brief Génère une valeur aléatoire entre un min et un max dans un tableau
      * @param min Minimum range
