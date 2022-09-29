@@ -44,7 +44,7 @@ void Bank::addFreeCashiersToList(Cashier* c) {
 }
 
 void Bank::getStats() {
-    cout << "\n\n-----------Statistiques de fin de simulation----------------\n\n";
+    cout << "\n\n############### Statistiques de fin de simulation ###############\n\n";
     cout << "Temps attendue de la simulation : " << _expectedDuration << "s\n";
     cout << "Temps reel de la simulation : " << this->getTime() <<"s\n";
     cout << "Temps d'attente moyen dans la file d'attente : " <<_queue->getAverageWaitingTime() <<"s\n";
